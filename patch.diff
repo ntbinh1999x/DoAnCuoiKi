@@ -1,0 +1,23 @@
+From faa13d842fbef9628b51c927da03f480c35ad5b8 Mon Sep 17 00:00:00 2001
+From: nguyentrongbinh <ntbinh199x@gmail.com>
+Date: Thu, 21 Dec 2017 17:42:10 +0700
+Subject: [PATCH] huy dat
+
+---
+ readme.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/readme.md b/readme.md
+index 2639986..5251f98 100644
+--- a/readme.md
++++ b/readme.md
+@@ -1,5 +1,5 @@
+ <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+-
++asbdasd
+ <p align="center">
+ <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+ <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
+-- 
+2.15.1.windows.2
+
