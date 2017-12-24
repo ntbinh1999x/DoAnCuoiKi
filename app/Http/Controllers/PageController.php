@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Slide;
+use App\Product;
 
 use Illuminate\Http\Request;
 
@@ -11,7 +12,8 @@ class PageController extends Controller
     {
         $slide = Slide::all();
     	//return view('page.trangchu',['slide'=>$slide]);
-        return view('page.trangchu',compact('slide'));
+        $new_product = Product::where('new',1)->get();
+        return view('page.trangchu',compact('slide','new_product'));
     }
 	public function getLoaiSP(){
     	return view('page.loai_sanpham');
