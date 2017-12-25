@@ -38,4 +38,7 @@ class PageController extends Controller
     public function getGioiThieu(){
     	return view('page.gioithieu');
     }
+     public function getAddtoCart(Request $id){
+        //lam tiep
+     }
 }
