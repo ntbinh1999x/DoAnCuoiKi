@@ -82,8 +82,6 @@
 							@foreach($sanpham_khuyenmai as $spkm)	
 								<div class="col-sm-3">
 									<div class="single-item">
-										
-
 										<div class="single-item-header">
 											<a href="{{route('chitietsanpham',$spkm->id)}}"><img src="source/image/product/{{$spkm->image}}" alt="" height="250px"></a>
 										</div>

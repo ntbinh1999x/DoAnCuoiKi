@@ -24,7 +24,7 @@ Route::get('loai-san-pham/{type}',[
 	'as'=>'loaisanpham',
 	'uses'=>'PageController@getLoaiSp'
 ]);
-Route::get('chi-tiet-san-pham',[
+Route::get('chi-tiet-san-pham/{id}',[
 	'as'=>'chitietsanpham',
 	'uses'=>'PageController@getChitiet'
 ]);
