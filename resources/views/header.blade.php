@@ -32,26 +32,25 @@
 					</div>
 
 					<div class="beta-comp">
+						@if(Session::has('cart'))
 						<div class="cart">
 							<div class="beta-select"><i class="fa fa-shopping-cart"></i> Giỏ hàng (@if(Session::has('cart')){{Session('cart')->totalQty}}@else Trống @endif) <i class="fa fa-chevron-down"></i></div>
 							<div class="beta-dropdown cart-body">
-								@if(Session::has('cart'))
+								
 								@foreach($product_cart as $product)
 								<div class="cart-item">
 									<div class="media">
 										<a class="pull-left" href="#"><img src="source/image/product/{{$product['item']['image']}}" alt=""></a>
 										<div class="media-body">
 											<span class="cart-item-title">{{$product['item']['name']}}</span>
-											
-											<span class="cart-item-amount">{{$product['qty']}}<span>{{$product['item']['unit_price']}}<span></span></span>
+											<span class="cart-item-amount">{{$product['qty']}}*<span>{{number_format($product['item']['unit_price'])}}<span></span></span>
 										</div>
 									</div>
 								</div>
-
-								@endif
+								@endforeach
 
 								<div class="cart-caption">
-									<div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">{{Session::has('cart')->totalPrice}}</span></div>
+									<div class="cart-total text-right">Tổng tiền: <span class="cart-total-value">{{number_format(Session('cart')->totalPrice)}} đồng</span></div>
 									<div class="clearfix"></div>
 
 									<div class="center">
@@ -61,6 +60,7 @@
 								</div>
 							</div>
 						</div> <!-- .cart -->
+						@endif
 					</div>
 				</div>
 				<div class="clearfix"></div>
