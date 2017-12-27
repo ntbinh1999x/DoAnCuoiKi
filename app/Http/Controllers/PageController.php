@@ -6,6 +6,14 @@ use App\Product;
 use App\ProductType;
 use App\Cart;
 use Session;
+use App\Customer;
+use App\Bill;
+use App\BillDetail;
+use App\User;
+use Hash;
+use Auth;
+use resources\admin;
+use resources\page;
 
 use Illuminate\Http\Request;
 
@@ -48,4 +56,53 @@ class PageController extends Controller
         $req->Session()->put('cart', $cart);
         return redirect()->back();
      }
+
+
+
+
+
+
+
+      public function getdanhsach()
+    {
+        $danhsach = Product::all();
+        return view('admin.danhsach',['danhsach'=>$danhsach]
+            );
+    }
+    public function getthem()
+    {
+        return view('admin.them'
+            );
+    }
+    public function postthem(Request $request)
+    {
+        $danhsach = new Product;
+        $danhsach->name = $request->name;
+        $danhsach->id_type = $request->id_type;
+        $danhsach->unit_price = $request->unit_price;
+        $danhsach->promotion_price = $request->promotion_price;
+        $danhsach->save();
+        return redirect('admin/them')->with('thongbao','Thêm thành công');
+    }
+    public function getsua($id)
+    {
+        $danhsach = Product::find($id);
+        return view('admin.sua',['danhsach'=>$danhsach]);
+    }
+    public function postsua(Request $request,$id)
+    {
+        $danhsach = Product::find($id);
+        $danhsach->name = $request->name;
+        $danhsach->id_type = $request->id_type;
+        $danhsach->unit_price = $request->unit_price;
+        $danhsach->promotion_price = $request->promotion_price;
+        $danhsach->save();
+        return redirect('admin/sua/'.$id)->with('thongbao','Sửa Thành Công');
+    }
+    public function getxoa($id)
+    {
+        $danhsach = Product::find($id);
+        $danhsach->delete();
+        return redirect('admin/danhsach')->with('thongbao','Bạn đã xóa thành công');
+    }
 }

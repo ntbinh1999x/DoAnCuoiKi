@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\admin;
 
 Route::get('/', function () {
     return view('welcome');
@@ -42,3 +43,31 @@ Route::get('add-to-cart/{id}',[
 	'as'=>'themgiohang',
 	'uses'=>'PageController@getAddtoCart'
 ]);
+
+
+route::group(['prefix' => 'admin'],function(){
+
+	route::get('/danhsach',[
+		'as'=>'Admindanhsach',
+		'uses'=>'PageController@getdanhsach']);
+
+	route::get('/them','PageController@getthem');
+	route::post('them','PageController@postthem');
+
+
+	route::get('/sua/{id}',[
+		'as'=>'suasanpham',
+		'uses'=>'PageController@getsua'
+	]);
+
+
+	route::post('/sua/{id}','PageController@postsua');
+	route::get('xoa/{id}',[
+		'as'=>'xoasanpham',
+		'uses'=>'PageController@getxoa'
+	]);
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
