@@ -70,6 +70,11 @@ route::group(['middleware' => ['admin']],function(){
 	]);
 });
 
+
+Route::get('search',[
+	'as'=>'search',
+	'uses'=>'PageController@getsearch'
+	]);
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

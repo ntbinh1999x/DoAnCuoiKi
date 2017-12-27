@@ -11,8 +11,8 @@
 						<th>loại ID</th> 
 						<th>giá</th>
 						<th>giá khuyến mãi</th>
-						<th class="center"><i class="fa fa-trash-o fa-fw"></i><a href="#">Xóa</a></th>
-						<th class="center"><i class="fa fa-pencil fa-fw"></i><a href="#">Sửa</a></th>
+						<th class="center"><i class="fa fa-trash-o fa-fw"></i><a >Delete</a></th>
+						<th class="center"><i class="fa fa-pencil fa-fw"></i><a >Edit</a></th>
 					</tr>
 					@foreach($danhsach as $ds)
 					  <tr>

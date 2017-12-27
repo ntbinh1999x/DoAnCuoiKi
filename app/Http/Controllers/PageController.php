@@ -110,4 +110,11 @@ class PageController extends Controller
         $danhsach->delete();
         return redirect('admin/danhsach')->with('thongbao','Bạn đã xóa thành công');
     }
+    public function getsearch(Request $req)
+    {
+        $product = Product::where('name','like','%'.$req->key.'%')
+                            ->orWhere('unit_price',$req->key)   
+                            ->get();
+        return view('page.search',compact('product'));
+    }
 }
