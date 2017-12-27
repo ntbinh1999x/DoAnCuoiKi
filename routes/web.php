@@ -45,23 +45,23 @@ Route::get('add-to-cart/{id}',[
 ]);
 
 
-route::group(['prefix' => 'admin'],function(){
+route::group(['Middleware' => 'admin'],function(){
 
-	route::get('/danhsach',[
+	route::get('/admin/danhsach',[
 		'as'=>'Admindanhsach',
 		'uses'=>'PageController@getdanhsach']);
 
-	route::get('/them','PageController@getthem');
+	route::get('/admin/them','PageController@getthem');
 	route::post('them','PageController@postthem');
 
 
-	route::get('/sua/{id}',[
+	route::get('/admin/sua/{id}',[
 		'as'=>'suasanpham',
 		'uses'=>'PageController@getsua'
 	]);
 
 
-	route::post('/sua/{id}','PageController@postsua');
+	route::post('/admin/sua/{id}','PageController@postsua');
 	route::get('xoa/{id}',[
 		'as'=>'xoasanpham',
 		'uses'=>'PageController@getxoa'
