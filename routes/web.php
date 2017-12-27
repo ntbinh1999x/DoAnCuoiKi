@@ -12,9 +12,10 @@
 */
 use App\admin;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[
+	'as'=>'trang-chu',
+	'uses'=>'PageController@getIndex'
+]);
 
 Route::get('index',[
 	'as'=>'trang-chu',
@@ -45,15 +46,16 @@ Route::get('add-to-cart/{id}',[
 ]);
 
 
-route::group(['Middleware' => 'admin'],function(){
+route::group(['middleware' => ['admin']],function(){
 
 	route::get('/admin/danhsach',[
 		'as'=>'Admindanhsach',
 		'uses'=>'PageController@getdanhsach']);
 
-	route::get('/admin/them','PageController@getthem');
-	route::post('them','PageController@postthem');
-
+	route::get('/admin/them',[
+		'as' =>'Adminthem',
+		'uses'=>'PageController@getthem']);
+	route::post('/admin/them','PageController@postthem');
 
 	route::get('/admin/sua/{id}',[
 		'as'=>'suasanpham',
@@ -62,7 +64,7 @@ route::group(['Middleware' => 'admin'],function(){
 
 
 	route::post('/admin/sua/{id}','PageController@postsua');
-	route::get('xoa/{id}',[
+	route::get('/admin/xoa/{id}',[
 		'as'=>'xoasanpham',
 		'uses'=>'PageController@getxoa'
 	]);

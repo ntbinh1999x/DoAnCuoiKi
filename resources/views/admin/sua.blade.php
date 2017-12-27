@@ -1,13 +1,14 @@
 @extends('master')
 @section('content')
+<div class="container">
 	<form action="admin/sua/{{$danhsach->id}}" method="post" class="beta-form-checkout">
 			<input type="hidden" name="_token" value="{{csrf_token()}}">
 				<div class="row">
 					<div class="col-sm-3"></div>
-					@if(Session::has('thongbao'))
-						<div class="alert alert-success">{{Session::get('thongbao')}}</div>
-					@endif
 					<div class="col-sm-6">
+						@if(Session::has('thongbao'))
+							<div class="alert alert-success">{{Session::get('thongbao')}}</div>
+						@endif
 						<h4>Sửa Sản Phẩm</h4>
 						<div class="space20">&nbsp;</div>
 						<div class="form-block">
@@ -33,4 +34,5 @@
 					<div class="col-sm-3"></div>
 				</div>
 			</form>
+</div>
 @endsection

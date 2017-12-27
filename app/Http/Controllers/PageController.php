@@ -66,16 +66,22 @@ class PageController extends Controller
       public function getdanhsach()
     {
         $danhsach = Product::all();
-        return view('admin.danhsach',['danhsach'=>$danhsach]
-            );
+        return view('admin.danhsach',['danhsach'=>$danhsach]);
     }
     public function getthem()
     {
-        return view('admin.them'
-            );
+        return view('admin.them');
     }
     public function postthem(Request $request)
     {
+        // $this->validate($request,
+        // [
+        //     'id_type'=>'required|unique:admin,id_type|min:1|max:7',
+        // ],
+        // [
+        //     'id_type.required'=>'id nhỏ nhất là 1',
+        //     'id_type.unique'=>'id lon nhất là 7',
+        // ]);
         $danhsach = new Product;
         $danhsach->name = $request->name;
         $danhsach->id_type = $request->id_type;
