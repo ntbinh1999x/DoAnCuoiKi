@@ -49,7 +49,15 @@ Route::get('del-cart/{id}',[
 	'as'=>'xoagiohang',
 	'uses'=>'PageController@getDelItemCart'
 ]);
+Route::get('dat-hang',[
+	'as'=>'dathang',
+	'uses'=>'PageController@getCheckout'
+]);
 
+Route::post('dat-hang',[
+	'as'=>'dathang',
+	'uses'=>'PageController@postCheckout'
+]);
 route::group(['middleware' => ['admin']],function(){
 
 	route::get('/admin/danhsach',[
