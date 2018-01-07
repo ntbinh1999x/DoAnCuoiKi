@@ -34,7 +34,7 @@
 		<div class="header-body">
 			<div class="container beta-relative">
 				<div class="pull-left">
-					<a href="index.html" id="logo"><img src="source/assets/dest/images/logo-cake.png" width="200px" alt=""></a>
+					<a href="index.html" id="logo"><img src="/source/assets/dest/images/logo-cake.png" width="200px" alt=""></a>
 				</div>
 				<div class="pull-right beta-components space-left ov">
 					<div class="space10">&nbsp;</div>
@@ -54,7 +54,7 @@
 								@foreach($product_cart as $product)
 								<div class="cart-item">
 									<div class="media">
-										<a class="pull-left" href="#"><img src="source/image/product/{{$product['item']['image']}}" alt=""></a>
+										<a class="pull-left" href="#"><img src="/source/image/product/{{$product['item']['image']}}" alt=""></a>
 										<div class="media-body">
 											<span class="cart-item-title">{{$product['item']['name']}}</span>
 											<span class="cart-item-amount">{{$product['qty']}}*<span>{{number_format($product['item']['unit_price'])}}<span></span></span>
