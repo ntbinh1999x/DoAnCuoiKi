@@ -27,7 +27,7 @@
 					</div>
 					<div class="col-sm-9">
 						<div class="beta-products-list">
-							<h4>New Products</h4>
+							<h4>Loại Sản Phẩm</h4>
 							<div class="beta-products-details">
 								<p class="pull-left">438 styles found</p>
 								<div class="clearfix"></div>
@@ -55,8 +55,8 @@
 											</p>
 										</div>
 										<div class="single-item-caption">
-											<a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-											<a class="beta-btn primary" href="product.html">Details <i class="fa fa-chevron-right"></i></a>
+											<a class="add-to-cart pull-left" href="{{route('themgiohang',$sp->id)}}"><i class="fa fa-shopping-cart"></i></a>
+											<a class="beta-btn primary" href="{{route('chitietsanpham', $sp->id)}}">Chi Tiết <i class="fa fa-chevron-right"></i></a>
 											<div class="clearfix"></div>
 										</div>
 									</div>
