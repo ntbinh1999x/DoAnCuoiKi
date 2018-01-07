@@ -7,7 +7,7 @@ use App\ProductType;
 use App\Cart;
 use Session;
 use App\Customer;
-use App\Bill;
+use App\Bill; // su dung hoa don
 use App\BillDetail;
 use App\User;
 use Hash;
@@ -68,11 +68,34 @@ class PageController extends Controller
             Session::forget('cart');
         }  
     
-
-
-
-
         return redirect()->back();
+    }
+
+    public function getCheckout(){
+        return view('page.dat_hang');
+    }
+
+    public function postCheckout(Request $req){
+        $cart = Session::get('cart');
+
+        $customer = new Customer;
+        $customer->name = $req->name;
+        $customer->gender = $req->gender;
+        $customer->email = $req->email;
+        $customer->address = $req->address;
+        $customer->phone_number = $req->phone;
+        $customer->note = $req->notes;
+        $customer->save();
+
+        $bill = new Bill;
+        $bill->id_customer = $customer->id;
+        $bill->date_order = date('Y-m-d');
+        $bill->total = $cart->totalPrice;
+        $bill->payment = $req->payment_method;
+        $bill->note = $req->notes;
+        $bill->save();
+
+//
     }
       public function getdanhsach()
     {
